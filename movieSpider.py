@@ -1,5 +1,6 @@
 import requests
 import os
+import time
 
 referer = 'http://youku.cdn1-kubozy.com/20210303/20553_fc9b0e33/index.m3u8'
 
@@ -14,6 +15,7 @@ def heBingTsVideo(download_path,hebing_path):
     with open(hebing_path, 'wb+') as f:
         for i in range(len(all_ts)):
             ts_video_path = os.path.join(download_path, all_ts[i])
+            time.sleep(0.01)
             f.write(open(ts_video_path, 'rb').read())
     print("合并完成！！")
 
